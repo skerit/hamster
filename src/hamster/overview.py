@@ -242,6 +242,11 @@ class Overview(gtk.Object):
         else:
             self.report_chooser.present()
 
+    def on_add_tags_activate(self, widget):
+        print "Pushed the add tags button"
+        print self.overview.facts
+        self.overview.facts[0].test()
+
 
     def apply_range_select(self):
         if self.view_date < self.start_date:

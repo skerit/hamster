@@ -236,6 +236,26 @@
                             <property name="position">3</property>
                           </packing>
                         </child>
+
+                         <child>
+                          <object class="GtkButton" id="button_add_tags">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="related_action">add_tags</property>
+                            <property name="relief">none</property>
+                            <child>
+                              <object class="GtkImage" id="image_add_tags">
+                                <property name="visible">True</property>
+                                <property name="stock">gtk-add</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
                         <property name="position">0</property>
@@ -425,5 +445,13 @@
         <signal name="activate" handler="on_prev_activate" swapped="no"/>
       </object>
     </child>
+
+    <child>
+      <object class="GtkAction" id="add_tags">
+        <property name="stock_id">gtk-add</property>
+        <signal name="activate" handler="on_add_tags_activate" swapped="no"/>
+      </object>
+    </child>
+    
   </object>
 </interface>

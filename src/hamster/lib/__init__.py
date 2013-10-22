@@ -1,6 +1,7 @@
 import calendar
 import datetime as dt
 import re
+from hamster import myGlobals
 
 def figure_time(str_time):
     if not str_time or not str_time.strip():
@@ -47,6 +48,8 @@ class Fact(object):
         self.delta = delta
         self.date = date
         self.activity_id = activity_id
+        
+        self.db = myGlobals.db
 
         # parse activity
         input_parts = activity.strip().split(" ")
@@ -103,6 +106,8 @@ class Fact(object):
         self.start_time = start_time or self.start_time or None
         self.end_time = end_time or self.end_time or None
 
+    def test(self):
+        print self.db.__get_tags()
 
     def __iter__(self):
         keys = {

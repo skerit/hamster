@@ -253,7 +253,6 @@ class HamsterClient(object):
         else:
             print _("No activity")
 
-
     def search(self, *args):
         """search for activities by name and optionally within a date range"""
         args = args or []
