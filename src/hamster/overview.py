@@ -242,10 +242,18 @@ class Overview(gtk.Object):
         else:
             self.report_chooser.present()
 
-    def on_add_tags_activate(self, widget):
-        print "Pushed the add tags button"
-        print self.overview.facts
-        self.overview.facts[0].test()
+    def on_add_tags_press(self, widget, position, data):
+
+        # If we pushed the secondary icon, just clear the widget
+        if position == gtk.ENTRY_ICON_SECONDARY:
+            widget.set_text('')
+            return
+
+        # Get the new tags to add from the input widget
+        newtags = self.get_widget("newtags").get_text().decode("utf8", "replace")
+
+        for fact in self.overview.facts:
+            fact.add_tags(newtags)
 
 
     def apply_range_select(self):

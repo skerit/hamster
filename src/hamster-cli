@@ -29,6 +29,9 @@ import datetime as dt
 
 from hamster import client, reports
 from hamster.lib import Fact, stuff
+from hamster import myGlobals
+
+myGlobals.db = client.Storage()
 
 
 def word_wrap(line, max_len):

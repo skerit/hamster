@@ -106,8 +106,17 @@ class Fact(object):
         self.start_time = start_time or self.start_time or None
         self.end_time = end_time or self.end_time or None
 
-    def test(self):
-        print self.db.__get_tags()
+    # Add tags to the current fact and save it to the database
+    def add_tags(self, tags):
+
+        # Split the given tags string into an array
+        tags = tags.split(',')
+
+        # Add the tags to the existing tags
+        self.tags = self.tags + tags
+
+        # Save the fact with the new tags
+        return self.db.update_fact(self.id, self)
 
     def __iter__(self):
         keys = {
